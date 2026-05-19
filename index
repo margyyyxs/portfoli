@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#1A1410">
+<title>Маргарита — SMM & Digital</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F7F3EE;
+    --ink: #1A1410;
+    --rose: #C9614A;
+    --blush: #E8D5CC;
+    --warm: #8B6B55;
+    --light: #EDE8E3;
+  }
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+background: var(–cream);
+color: var(–ink);
+font-family: ‘DM Sans’, sans-serif;
+font-weight: 300;
+overflow-x: hidden;
+-webkit-font-smoothing: antialiased;
+}
+
+body::before {
+content: ‘’;
+position: fixed;
+inset: 0;
+background-image: url(“data:image/svg+xml,%3Csvg viewBox=‘0 0 200 200’ xmlns=‘http://www.w3.org/2000/svg’%3E%3Cfilter id=‘n’%3E%3CfeTurbulence type=‘fractalNoise’ baseFrequency=‘0.9’ numOctaves=‘4’ stitchTiles=‘stitch’/%3E%3C/filter%3E%3Crect width=‘100%25’ height=‘100%25’ filter=‘url(%23n)’ opacity=‘0.04’/%3E%3C/svg%3E”);
+pointer-events: none;
+z-index: 9999;
+opacity: 0.5;
+}
+
+/* ══ HERO — mobile first: single column ══ */
+.hero {
+display: flex;
+flex-direction: column;
+}
+
+.hero-left {
+background: var(–ink);
+display: flex;
+flex-direction: column;
+justify-content: flex-end;
+padding: 56px 24px 48px;
+position: relative;
+overflow: hidden;
+min-height: 55vmax;
+}
+
+.hero-left::before {
+content: ‘M’;
+font-family: ‘Playfair Display’, serif;
+font-size: 72vw;
+font-weight: 700;
+color: rgba(255,255,255,0.04);
+position: absolute;
+top: -8vw;
+left: -6vw;
+line-height: 1;
+pointer-events: none;
+}
+
+.hero-tag {
+font-size: 10px;
+letter-spacing: 0.25em;
+text-transform: uppercase;
+color: var(–rose);
+margin-bottom: 20px;
+font-weight: 500;
+opacity: 0;
+animation: fadeUp 0.8s 0.2s forwards;
+}
+
+.hero-name {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(54px, 14vw, 100px);
+color: var(–cream);
+line-height: 1.0;
+margin-bottom: 24px;
+opacity: 0;
+animation: fadeUp 0.8s 0.4s forwards;
+}
+
+.hero-name em { font-style: italic; color: var(–blush); }
+
+.hero-divider {
+width: 40px;
+height: 1px;
+background: var(–rose);
+margin-bottom: 20px;
+opacity: 0;
+animation: fadeUp 0.8s 0.6s forwards;
+}
+
+.hero-bio {
+color: rgba(247,243,238,0.6);
+font-size: 14px;
+line-height: 1.75;
+opacity: 0;
+animation: fadeUp 0.8s 0.8s forwards;
+}
+
+.hero-right {
+background: var(–blush);
+display: flex;
+align-items: center;
+justify-content: center;
+padding: 40px 24px;
+position: relative;
+overflow: hidden;
+}
+
+.hero-right::after {
+content: ‘’;
+position: absolute;
+width: 60vw;
+height: 60vw;
+border-radius: 50%;
+background: radial-gradient(circle, var(–rose) 0%, transparent 70%);
+opacity: 0.12;
+bottom: -20vw;
+right: -15vw;
+}
+
+.hero-card {
+background: white;
+border-radius: 6px;
+padding: 32px 28px;
+box-shadow: 0 24px 60px rgba(26,20,16,0.12);
+width: 100%;
+max-width: 480px;
+opacity: 0;
+animation: fadeUp 0.9s 0.5s forwards;
+position: relative;
+z-index: 1;
+}
+
+.card-label {
+font-size: 10px;
+letter-spacing: 0.3em;
+text-transform: uppercase;
+color: var(–warm);
+margin-bottom: 16px;
+font-weight: 500;
+}
+
+.card-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(22px, 5.5vw, 28px);
+line-height: 1.3;
+margin-bottom: 20px;
+color: var(–ink);
+}
+
+.card-items {
+list-style: none;
+display: flex;
+flex-direction: column;
+gap: 10px;
+}
+
+.card-items li {
+display: flex;
+align-items: center;
+gap: 10px;
+font-size: 14px;
+color: var(–warm);
+line-height: 1.4;
+}
+
+.card-items li::before {
+content: ‘’;
+display: block;
+width: 6px;
+height: 6px;
+min-width: 6px;
+border-radius: 50%;
+background: var(–rose);
+}
+
+/* ══ SECTIONS ══ */
+section { padding: 64px 24px; }
+section:nth-child(even) { background: var(–light); }
+
+.section-header {
+display: flex;
+align-items: flex-end;
+gap: 16px;
+margin-bottom: 40px;
+}
+
+.section-num {
+font-family: ‘Playfair Display’, serif;
+font-size: 56px;
+color: rgba(26,20,16,0.06);
+line-height: 1;
+font-weight: 700;
+flex-shrink: 0;
+}
+
+.section-title {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(26px, 7vw, 42px);
+line-height: 1.1;
+padding-bottom: 4px;
+}
+
+/* ══ EDUCATION ══ */
+.edu-grid {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.edu-card {
+border: 1px solid rgba(26,20,16,0.1);
+border-radius: 6px;
+padding: 28px 24px;
+position: relative;
+background: white;
+-webkit-tap-highlight-color: transparent;
+}
+
+.edu-card::before {
+content: ‘’;
+position: absolute;
+top: 0; left: 0; right: 0;
+height: 3px;
+background: var(–rose);
+border-radius: 6px 6px 0 0;
+}
+
+.edu-icon { font-size: 26px; margin-bottom: 16px; }
+
+.edu-card h3 {
+font-family: ‘Playfair Display’, serif;
+font-size: 18px;
+margin-bottom: 8px;
+line-height: 1.3;
+}
+
+.edu-card p {
+font-size: 14px;
+color: var(–warm);
+line-height: 1.6;
+}
+
+.edu-badge {
+display: inline-block;
+margin-top: 14px;
+background: var(–blush);
+color: var(–rose);
+font-size: 10px;
+letter-spacing: 0.15em;
+text-transform: uppercase;
+padding: 5px 12px;
+border-radius: 20px;
+font-weight: 500;
+}
+
+/* ══ SKILLS ══ */
+.skills-grid {
+display: flex;
+flex-direction: column;
+gap: 20px;
+}
+
+.skill-group {
+background: white;
+border-radius: 6px;
+padding: 24px 20px;
+border: 1px solid rgba(26,20,16,0.08);
+}
+
+.skill-group-title {
+font-family: ‘Playfair Display’, serif;
+font-size: 16px;
+margin-bottom: 16px;
+display: flex;
+align-items: center;
+gap: 8px;
+}
+
+.skill-group-title span { font-size: 18px; }
+
+.skill-tags {
+display: flex;
+flex-wrap: wrap;
+gap: 8px;
+}
+
+.tag {
+background: var(–light);
+border: 1px solid rgba(26,20,16,0.08);
+padding: 7px 14px;
+border-radius: 3px;
+font-size: 13px;
+color: var(–ink);
+-webkit-tap-highlight-color: transparent;
+cursor: default;
+}
+
+/* ══ ABOUT ══ */
+.about-quote {
+font-family: ‘Playfair Display’, serif;
+font-size: clamp(20px, 5.5vw, 32px);
+line-height: 1.45;
+color: var(–ink);
+position: relative;
+padding-left: 24px;
+margin-bottom: 32px;
+}
+
+.about-quote::before {
+content: ‘”’;
+font-size: 90px;
+color: var(–blush);
+position: absolute;
+top: -14px;
+left: -16px;
+line-height: 1;
+font-family: ‘Playfair Display’, serif;
+pointer-events: none;
+}
+
+.about-text p {
+font-size: 15px;
+line-height: 1.8;
+color: rgba(26,20,16,0.7);
+margin-bottom: 16px;
+}
+
+/* ══ CONTACTS ══ */
+.contacts {
+display: flex;
+flex-direction: column;
+gap: 14px;
+margin-top: 32px;
+}
+
+.contact-btn {
+display: flex;
+align-items: center;
+gap: 14px;
+background: var(–rose);
+color: white;
+padding: 16px 24px;
+border-radius: 4px;
+text-decoration: none;
+font-size: 14px;
+font-weight: 500;
+letter-spacing: 0.03em;
+transition: background 0.2s, transform 0.2s;
+-webkit-tap-highlight-color: transparent;
+/* large tap target */
+min-height: 52px;
+}
+
+.contact-btn:active { transform: scale(0.98); }
+
+.contact-btn.secondary {
+background: transparent;
+color: var(–ink);
+border: 1.5px solid rgba(26,20,16,0.2);
+}
+
+.contact-btn .icon {
+font-size: 20px;
+flex-shrink: 0;
+}
+
+.contact-btn .label { line-height: 1.2; }
+.contact-btn .sub { font-size: 12px; opacity: 0.75; font-weight: 300; }
+
+/* ══ FOOTER ══ */
+footer {
+background: var(–ink);
+color: rgba(247,243,238,0.45);
+text-align: center;
+padding: 40px 24px;
+padding-bottom: calc(40px + env(safe-area-inset-bottom));
+font-size: 12px;
+letter-spacing: 0.05em;
+line-height: 1.8;
+}
+
+footer strong {
+display: block;
+color: var(–blush);
+font-family: ‘Playfair Display’, serif;
+font-weight: 400;
+font-size: 18px;
+margin-bottom: 10px;
+}
+
+/* ══ ANIMATIONS ══ */
+@keyframes fadeUp {
+from { opacity: 0; transform: translateY(22px); }
+to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ══ DESKTOP OVERRIDES ══ */
+@media (min-width: 700px) {
+.hero {
+flex-direction: row;
+min-height: 100vh;
+}
+.hero-left, .hero-right { flex: 1; }
+.hero-left {
+padding: 64px 56px;
+min-height: auto;
+}
+.hero-left::before { font-size: clamp(280px, 35vw, 500px); }
+.hero-right { padding: 64px 48px; }
+.hero-card { padding: 44px 40px; }
+section { padding: 96px 10vw; }
+.section-num { font-size: 80px; }
+.edu-grid { flex-direction: row; }
+.edu-grid .edu-card { flex: 1; }
+.skills-grid { flex-direction: row; flex-wrap: wrap; }
+.skill-group { flex: 1 1 240px; }
+.about-inner {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 72px;
+align-items: start;
+}
+.about-quote { margin-bottom: 0; }
+.contacts { flex-direction: row; flex-wrap: wrap; }
+.contact-btn { flex: 1 1 auto; min-width: 200px; }
+}
+</style>
+
+</head>
+<body>
+
+<!-- ══ HERO ══ -->
+
+<div class="hero">
+  <div class="hero-left">
+    <p class="hero-tag">SMM & Digital Communications</p>
+    <h1 class="hero-name">Марга<em>рита</em></h1>
+    <div class="hero-divider"></div>
+    <p class="hero-bio">
+      Студентка программы PR in Politics and Business в Финансовом университете при Правительстве РФ. Развиваюсь в digital-коммуникациях и ищу первые реальные кейсы.
+    </p>
+  </div>
+
+  <div class="hero-right">
+    <div class="hero-card">
+      <p class="card-label">Ключевые направления</p>
+      <h2 class="card-title">Контент.<br>Коммуникации.<br>Бренд.</h2>
+      <ul class="card-items">
+        <li>Контент-планирование</li>
+        <li>Оформление соцсетей</li>
+        <li>Работа с AI-инструментами</li>
+        <li>Анализ аудитории</li>
+        <li>Визуальные идеи</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<!-- ══ EDUCATION ══ -->
+
+<section id="education">
+  <div class="section-header">
+    <div class="section-num">01</div>
+    <h2 class="section-title">Образование</h2>
+  </div>
+  <div class="edu-grid">
+    <div class="edu-card">
+      <div class="edu-icon">🎓</div>
+      <h3>PR in Politics and Business</h3>
+      <p>Финансовый университет при Правительстве РФ. Обучение полностью на английском языке.</p>
+      <span class="edu-badge">В процессе</span>
+    </div>
+    <div class="edu-card">
+      <div class="edu-icon">📱</div>
+      <h3>Мини-курс по SMM</h3>
+      <p>Курс у Анны Бойко. Практические знания по созданию контента и ведению социальных сетей.</p>
+      <span class="edu-badge">Завершён</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══ SKILLS ══ -->
+
+<section id="skills">
+  <div class="section-header">
+    <div class="section-num">02</div>
+    <h2 class="section-title">Навыки</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group">
+      <div class="skill-group-title"><span>🤖</span> AI-инструменты</div>
+      <div class="skill-tags">
+        <span class="tag">ChatGPT</span>
+        <span class="tag">Claude</span>
+        <span class="tag">DeepSeek</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>📲</span> SMM</div>
+      <div class="skill-tags">
+        <span class="tag">Контент-план</span>
+        <span class="tag">Оформление соцсетей</span>
+        <span class="tag">Анализ аудитории</span>
+        <span class="tag">Идеи для визуала</span>
+      </div>
+    </div>
+    <div class="skill-group">
+      <div class="skill-group-title"><span>🎨</span> Инструменты</div>
+      <div class="skill-tags">
+        <span class="tag">PowerPoint</span>
+        <span class="tag">Презентации</span>
+        <span class="tag">Английский язык</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ ABOUT ══ -->
+
+<section id="about">
+  <div class="section-header">
+    <div class="section-num">03</div>
+    <h2 class="section-title">О себе</h2>
+  </div>
+  <div class="about-inner">
+    <div class="about-quote">
+      Хочу развиваться в SMM через практику, реальные проекты и создание сильных кейсов.
+    </div>
+    <div class="about-text">
+      <p>Быстро обучаюсь и искренне интересуюсь digital-сферой и современными коммуникациями. Слежу за трендами в SMM, изучаю работу с аудиторией и построение бренд-нарративов.</p>
+      <p>Сейчас активно ищу первые проекты — готова вкладываться по-настоящему, учиться в процессе и приносить пользу уже сейчас.</p>
+      <div class="contacts">
+        <a href="https://t.me/margyyyxs" class="contact-btn" target="_blank" rel="noopener">
+          <span class="icon">✈️</span>
+          <div class="label">
+            <div>Написать в Telegram</div>
+            <div class="sub">@margyyyxs</div>
+          </div>
+        </a>
+        <a href="mailto:mharaberush@mail.ru" class="contact-btn secondary">
+          <span class="icon">✉️</span>
+          <div class="label">
+            <div>Написать на почту</div>
+            <div class="sub">mharaberush@mail.ru</div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ FOOTER ══ -->
+
+<footer>
+  <strong>Маргарита</strong>
+  PR in Politics and Business · Финансовый университет при Правительстве РФ<br>
+  SMM & Digital Communications · 2025
+</footer>
+
+</body>
+</html>
